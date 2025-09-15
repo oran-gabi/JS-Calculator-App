@@ -1,0 +1,225 @@
+/* Base Body Styles */
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    overflow: hidden;
+}
+
+/* Main Container for Three-Column Layout */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    gap: 10px;
+    width: 95vw; /* Make the container a percentage of the viewport width */
+    max-width: 1400px; /* Limit max width for a cleaner look on very large screens */
+    overflow-x: hidden;
+}
+
+/* Background Image Container */
+.background-image-container {
+    flex-basis: 50%; /* Use flex-basis for flexible width */
+    height: 60vh; /* Use viewport height for flexible height */
+    background-image: url("media/night.jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* History Log Styles */
+.history {
+    flex-basis: 25%; /* Use flex-basis for flexible width */
+    height: 60vh; /* Use viewport height for flexible height */
+    background-color: rgba(52, 73, 94, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+}
+
+.history h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+#history-log {
+    flex-grow: 1;
+    overflow-y: auto;
+    font-size: 1rem;
+    color: var(--text-color);
+    padding: 10px;
+}
+
+/* Scrollbar styling for a cleaner look */
+#history-log::-webkit-scrollbar {
+    width: 8px;
+}
+
+#history-log::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.history-item {
+    margin-bottom: 10px;
+}
+
+/* Calculator Styles */
+:root {
+    --calc-bg: rgba(52, 73, 94, 0.8);
+    --btn-bg: rgba(76, 102, 122, 0.8);
+    --btn-hover: rgba(90, 117, 142, 0.8);
+    --text-color: #ecf0f1;
+    --math-color: #f1c40f;
+    --equal-color: #27ae60;
+    --clear-color: #e74c3c;
+}
+
+.calculator {
+    flex-basis: 25%; /* Use flex-basis for flexible width */
+    background-color: var(--calc-bg);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.display {
+    background-color: rgba(44, 62, 80, 0.8);
+    color: var(--text-color);
+    font-size: 3vw; /* Use viewport units for responsive font size */
+    text-align: right;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    height: 60px;
+    overflow-x: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.btn {
+    padding: 20px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--btn-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.btn:hover {
+    background-color: var(--btn-hover);
+}
+
+.btn:active {
+    transform: scale(0.95);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.btn-math {
+    background-color: var(--math-color);
+    color: #34495e;
+}
+
+.btn-clear {
+    background-color: var(--clear-color);
+}
+
+.btn-equal {
+    background-color: var(--equal-color);
+}
+
+/* New CSS for the advanced dashboard */
+.more-ops-dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(44, 62, 80, 0.8);
+}
+
+.more-ops-dashboard .btn {
+    padding: 15px;
+}
+
+.more-ops-dashboard .btn-math {
+    background-color: var(--math-color);
+}
+
+.hidden {
+    display: none;
+}
+
+.btn-more-ops {
+    grid-column: span 2;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 20px 0;
+        width: 100vw;
+    }
+
+    .background-image-container {
+        display: none;
+    }
+
+    .history,
+    .calculator {
+        width: 90%;
+        flex-basis: auto; /* Allow elements to take natural width */
+    }
+}
+
+/* Small screens and phones */
+@media (max-width: 768px) {
+    .history {
+        height: 200px;
+    }
+
+    .calculator {
+        padding: 10px;
+    }
+    
+    .display {
+        font-size: 2rem;
+        padding: 15px;
+    }
+
+    .btn {
+        padding: 15px;
+        font-size: 1.2rem;
+    }
+}
